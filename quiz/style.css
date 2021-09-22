@@ -1,0 +1,74 @@
+:root {
+  --bg-primary-color: #18181b;
+  --bg-secondary-color: #0e0e10;
+  --text-primary-color: #efeff1;
+  --text-secondary-color: #adadb8;
+
+  --dark-green: #219653;
+  --light-green: #7beaa9;
+  --dark-red: #f01919;
+  --light-red: #f16161;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--bg-primary-color);
+  font-family: "Montserrat", sans-serif;
+
+  margin: 0;
+  padding: 10px;
+
+  display: grid;
+  place-items: center;
+}
+
+.content__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: var(--text-primary-color);
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.quiz__container {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  max-height: 600px;
+  background-color: var(--bg-secondary-color);
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+/* SHOUT-OUT -> LINK TO GITHUB PROFILE */
+#shout-out,
+#shout-out a {
+  color: var(--text-secondary-color);
+}
+
+#shout-out a {
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--text-secondary-color);
+
+  transition: all 250ms ease-in-out;
+}
+
+#shout-out a:hover,
+#shout-out a:focus-visible {
+  color: var(--text-primary-color);
+  border-color: var(--text-primary-color);
+}
