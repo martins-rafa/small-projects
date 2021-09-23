@@ -4,6 +4,7 @@
 const startBtn = document.getElementById("start-quiz");
 const submitBtn = document.getElementById("submit-quiz");
 const quizContainer = document.getElementById("quiz");
+const resultsContainer = document.getElementById("results");
 
 // Question Database
 const questions = [
@@ -40,9 +41,14 @@ const questions = [
   },
 ];
 
-// toggle hide/show element
-const toggleDisplayElement = function (element) {
-  element.classList.toggle("hidden");
+// hide element
+const hideHtmlElement = function (element) {
+  element.classList.add("hidden");
+};
+
+// show element
+const showHtmlElement = function (element) {
+  element.classList.remove("hidden");
 };
 
 // Create Quiz
@@ -61,7 +67,7 @@ const buildQuiz = function () {
       answers.push(
         `
           <label>
-            <input type="radio" name="question${questionNumber}" value"${letter}">
+            <input type="radio" name="question${questionNumber}" value="${letter}">
             ${letter.toUpperCase()} ) &nbsp;
             ${currentQuestion.answers[letter]}
           </label>
@@ -82,13 +88,64 @@ const buildQuiz = function () {
   quizContainer.innerHTML = output.join("");
 };
 
+// Display Results
+const showResults = function () {
+  // gather answer containers from our quiz
+  const answerContainers = quizContainer.querySelectorAll(".answers");
+
+  // keep track of user's answers
+  let numCorrect = 0;
+
+  // for each question...
+  questions.forEach((currentQuestion, questionNumber) => {
+    // find selected answer
+    const answerContainer = answerContainers[questionNumber];
+    const selector = `input[name=question${questionNumber}]:checked`;
+    const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+    // if answer is correct
+    if (userAnswer === currentQuestion.correctAnswer) {
+      // add to the number of correct answers
+      numCorrect++;
+
+      // color the answers green
+      answerContainers[questionNumber].classList.add("right-answer");
+    }
+    // if answer is wrong or blank
+    else {
+      answerContainers[questionNumber].classList.add("wrong-answer");
+    }
+  });
+
+  // show number of correct answers out of total
+  resultsContainer.innerHTML = `How did you do?<br><br>${numCorrect} out of ${questions.length}`;
+};
+
+// Start Quiz
 startBtn.addEventListener("click", () => {
   // hide start button
-  toggleDisplayElement(startBtn);
+  hideHtmlElement(startBtn);
+
+  // hide results
+  hideHtmlElement(resultsContainer);
 
   // build quiz
   buildQuiz();
 
   // display submit button
-  toggleDisplayElement(submitBtn);
+  showHtmlElement(submitBtn);
+});
+
+// Handle submit event
+submitBtn.addEventListener("click", () => {
+  // show results
+  showResults();
+  showHtmlElement(resultsContainer);
+
+  // show start button
+  startBtn.innerText = "RESTART";
+  showHtmlElement(startBtn);
+
+  // hide submit button
+  hideHtmlElement(submitBtn);
 });
