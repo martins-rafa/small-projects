@@ -1,5 +1,6 @@
 :root {
   --bg-primary-color: #18181b;
+  --bg-primary-color-hover: #18181bb7;
   --bg-secondary-color: #0e0e10;
   --text-primary-color: #efeff1;
   --text-secondary-color: #adadb8;
@@ -28,6 +29,39 @@ body {
   place-items: center;
 }
 
+button {
+  width: 250px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+
+  font-size: 24px;
+  font-weight: 500;
+
+  background: var(--bg-primary-color);
+  color: var(--text-primary-color);
+  text-align: center;
+
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+}
+
+button:hover,
+button:focus-visible {
+  background: var(--bg-primary-color-hover);
+  transform: translateY(-5px);
+}
+
+#submit-quiz {
+  margin-top: 50px;
+}
+
+.hidden {
+  display: none;
+}
+
 .content__container {
   width: 100%;
   height: 100%;
@@ -43,14 +77,47 @@ h1 {
   margin-bottom: 50px;
 }
 
-.quiz__container {
+#quiz__container {
   width: 100%;
   height: 100%;
   max-width: 1000px;
-  max-height: 600px;
   background-color: var(--bg-secondary-color);
   border-radius: 10px;
   margin-bottom: 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#quiz {
+  width: 70%;
+
+  color: var(--text-primary-color);
+}
+
+.answers + .question {
+  margin-top: 50px;
+}
+
+.question {
+  font-size: 18px;
+}
+
+.answers {
+  margin: 10px;
+}
+
+#quiz label {
+  color: var(--text-secondary-color);
+  display: flex;
+  margin-bottom: 5px;
+}
+
+#quiz label:hover,
+#quiz label:focus-visible {
+  cursor: pointer;
 }
 
 /* SHOUT-OUT -> LINK TO GITHUB PROFILE */
@@ -64,6 +131,8 @@ h1 {
   padding-bottom: 1px;
   border-bottom: 1px solid var(--text-secondary-color);
 
+  position: relative;
+
   transition: all 250ms ease-in-out;
 }
 
@@ -71,4 +140,31 @@ h1 {
 #shout-out a:focus-visible {
   color: var(--text-primary-color);
   border-color: var(--text-primary-color);
+}
+
+#shout-out a::after {
+  content: attr(aria-label);
+  position: absolute;
+  color: #0e0e10;
+  background: #efeff1;
+  width: max-content;
+  font-size: 1rem;
+  left: 0;
+  right: 0;
+  top: -150%;
+  margin: 0 auto;
+  padding: 0.25em 0.5em;
+  border-radius: 0.125em;
+
+  opacity: 0.8;
+  transform: scale(0);
+  transform-origin: bottom;
+  transition: transform 0ms linear 100ms, opacity 100ms linear;
+}
+
+#shout-out a:hover::after,
+#shout-out a:focus-visible::after {
+  opacity: 0.8;
+  transform: scale(1);
+  transition: transform 70ms linear, opacity 70ms linear;
 }
