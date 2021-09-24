@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+
+    <!-- import Montserrat font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- import CSS and JavaScript -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="form-header">
+        <h2>Form Header</h2>
+      </div>
+      <form action="" class="form" id="form">
+        <div class="form-input">
+          <label>Username</label>
+          <input type="text" placeholder="username" id="username" />
+          <img
+            class="valid-input-icon"
+            src="icons/check-circle.svg"
+            alt="valid input icon"
+          />
+          <img
+            class="invalid-input-icon"
+            src="icons/exclamation-circle.svg"
+            alt="invalid input icon"
+          />
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-input">
+          <label>Email</label>
+          <input type="email" placeholder="username@email.com" id="email" />
+          <img
+            class="valid-input-icon"
+            src="icons/check-circle.svg"
+            alt="valid input icon"
+          />
+          <img
+            class="invalid-input-icon"
+            src="icons/exclamation-circle.svg"
+            alt="invalid input icon"
+          />
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-input">
+          <label>Password</label>
+          <input type="password" placeholder="password" id="password" />
+          <img
+            class="valid-input-icon"
+            src="icons/check-circle.svg"
+            alt="valid input icon"
+          />
+          <img
+            class="invalid-input-icon"
+            src="icons/exclamation-circle.svg"
+            alt="invalid input icon"
+          />
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-input">
+          <label>Check Password</label>
+          <input
+            type="password"
+            placeholder="repeat password"
+            id="check-password"
+          />
+          <img
+            class="valid-input-icon"
+            src="icons/check-circle.svg"
+            alt="valid input icon"
+          />
+          <img
+            class="invalid-input-icon"
+            src="icons/exclamation-circle.svg"
+            alt="invalid input icon"
+          />
+          <small>Error Message</small>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <span id="shout-out"
+      >MADE BY
+      <a
+        href="https://github.com/martins-rafa"
+        target="_blank"
+        aria-label="GitHub"
+        >RAFA MARTINS</a
+      >
+    </span>
+  </body>
+</html>
