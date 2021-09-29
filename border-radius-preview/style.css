@@ -1,0 +1,154 @@
+:root {
+  --top-left: 0px;
+  --top-right: 0px;
+  --bottom-left: 0px;
+  --bottom-right: 0px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+
+  font-family: "Montserrat", sans-serif;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #232323;
+}
+
+h1 {
+  color: whitesmoke;
+}
+
+p {
+  margin: 10px 0 50px 0;
+  color: rgba(247, 247, 247, 0.5);
+}
+
+a {
+  text-decoration: none;
+  color: rgba(247, 247, 247, 0.5);
+  border-bottom: 1px solid rgba(247, 247, 247, 0.5);
+
+  position: relative;
+  isolation: isolate;
+
+  transition: all 250ms ease-in-out;
+}
+
+a:hover {
+  color: rgba(247, 247, 247, 0.8);
+  border-bottom: 1px solid rgba(247, 247, 247, 0.8);
+}
+
+a::after {
+  content: attr(aria-label);
+  position: absolute;
+  color: black;
+  background: white;
+  width: max-content;
+  font-size: 1rem;
+  left: 0;
+  right: 0;
+  top: 130%;
+  margin: 0 auto;
+  padding: 0.25em 0.5em;
+  border-radius: 0.125em;
+  opacity: 0.8;
+  transform: scale(0);
+  transform-origin: top;
+  /* transform 0ms linear 100ms, is just a delay so the opacity effect can work property */
+  transition: transform 0ms linear 100ms, opacity 100ms linear;
+}
+
+a:hover::after,
+a:focus-visible::after {
+  opacity: 0.8;
+  transform: scale(1);
+  transition: transform 70ms linear, opacity 70ms linear;
+}
+
+.box {
+  width: 60vw;
+  height: 50vw;
+  max-width: 500px;
+  max-height: 400px;
+  background-color: antiquewhite;
+
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: var(--top-left) var(--top-right) var(--bottom-right)
+    var(--bottom-left);
+}
+
+#top-left,
+#top-right,
+#bottom-left,
+#bottom-right {
+  width: 50px;
+  height: 25px;
+  position: absolute;
+}
+
+#top-left {
+  left: -100px;
+  top: 0;
+}
+
+#top-right {
+  right: -100px;
+  top: 0;
+}
+
+#bottom-left {
+  left: -100px;
+  bottom: 0;
+}
+
+#bottom-right {
+  right: -100px;
+  bottom: 0;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+
+  font-weight: bold;
+  color: #4e4e4ec0;
+  text-align: center;
+  padding: 2px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.css-properties {
+  width: 70%;
+  height: 40%;
+
+  background: white;
+  border: 1px solid #232323;
+
+  padding: 10px;
+}
+
+.css-properties > p {
+  font-family: monospace;
+  color: #232323;
+  font-size: 1rem;
+}
