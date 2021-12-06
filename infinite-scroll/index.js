@@ -6,11 +6,19 @@ let imagesLoaded = 0;
 let totalImages = [];
 let photosArray = [];
 
+let isInitialCount = true;
+
 // Unsplash API
-const count = 30;
+// set the initial number of images to 5 so the website load faster
+let initialCount = 5;
 // CREATE YOUR PROJECT IN THE UNSPLASH API, THEN INSERT THE API KEY IN THE VARIABLE BELOW:
 const apiKEY = "";
-const apiURL = `https://api.unsplash.com/photos/random/?client_id=${apiKEY}&count=${count}`;
+let apiURL = `https://api.unsplash.com/photos/random/?client_id=${apiKEY}&count=${initialCount}`;
+
+// Helper function to update the number of images loaded by the API
+function updatedApiUrlWithNewCount(picCount) {
+  apiURL = `https://api.unsplash.com/photos/random/?client_id=${apiKEY}&count=${picCount}`;
+}
 
 // Helper function to Set Attributes on DOM Elements
 function setAttributes(element, attributes) {
@@ -28,12 +36,10 @@ function checkDescription(item) {
 
 // Check if all images were loaded
 function imageLoaded() {
-  console.log("image loaded");
   imagesLoaded++;
   if (imagesLoaded === totalImages) {
     ready = true;
     loader.hidden = true;
-    console.log("ready = " + ready);
   }
 }
 
@@ -41,7 +47,6 @@ function imageLoaded() {
 function displayPhotos() {
   imagesLoaded = 0;
   totalImages = photosArray.length;
-  console.log("total images", totalImages);
   // Run function for each object in photosArray
   photosArray.forEach((photo) => {
     // Create <a> to link to Unsplash website
@@ -76,8 +81,20 @@ async function getPhotos() {
     const response = await fetch(apiURL);
     photosArray = await response.json();
     displayPhotos();
+
+    if (isInitialCount) {
+      updatedApiUrlWithNewCount(15);
+      isInitialCount = false;
+    }
   } catch (error) {
+    // stop loader animation
+    loader.hidden = true;
+
     // Catch Error Here
+    const errorMessage = document.createElement("h1");
+    errorMessage.innerHTML = `Something went wrong<br>${error}`;
+    imageContainer.appendChild(errorMessage);
+    console.error(error);
   }
 }
 
