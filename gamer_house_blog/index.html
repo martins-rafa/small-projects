@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamer House</title>
+    <link rel="icon" type="image/x-icon" href="/media/icons/favicon-16x16.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav id="nav" class="d-flex">
+            <div class="page-links d-flex">
+                <a href="#"><img class="nav-logo" src="/media/icons/logo.svg" alt="gamer house logo: a video game controller with a roof"></a>
+                <ul class="nav-links d-flex">
+                    <li><a class="nav-link active" href="#featured">Home</a></li>
+                    <li><a class="nav-link" href="#news">News</a></li>
+                    <li><a class="nav-link" href="#newsletter">Newsletter</a></li>
+                </ul>
+            </div>
+            <div class="sign-options d-flex">
+                <a class="login" href="#">Login</a>
+                <a class="signup" href="#">Sign up</a>
+            </div>
+            <a href="#" class="menu"><img src="/media/icons/hamburguer.svg" alt=""></a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <section id="featured">
+            <h2 class="section-title">Featured</h2>
+            <div class="featured-grid">
+                <div class="principal-featured-card">
+                    <img class="principal-featured-card__image" src="/media/images/eldenring.png" alt="elden ring character holding a torch in a cave ready to fight mutant ants">
+                    <div class="principal-featured-card__info">
+                        <span class="principal-featured-card__author">- Rafa Martins</span>
+                        <p class="principal-featured-card__title">Everything you need to know about Elden Ring, the new From Software Massive RPG.<br>Coming on February 24</p>
+                        <a class="principal-featured__cta" href="#">Read More</a>
+                    </div>
+                </div>
+
+                <div class="side-featured-card side1">
+                    <img class="side-featured-card__image" src="/media/images/sifu.png" alt="Sifu fighting against two enemies">
+                    <div class="side-featured-card__info">
+                        <span class="side-featured-card__author">- Rafa Martins</span>
+                        <p class="side-featured-card__title">“ Sifu is brutal, in the nicest way possible “</p>
+                        <a class="side-featured__cta" href="#">Read Full Review</a>
+                    </div>
+                </div>
+
+                <div class="side-featured-card side2">
+                    <img class="side-featured-card__image" src="/media/images/godofwar.png" alt="Kratos ready to cut a marked tree">
+                    <div class="side-featured-card__info">
+                        <span class="side-featured-card__author">- Rafa Martins</span>
+                        <p class="side-featured-card__title">“ A masterpiece, now available on PC “</p>
+                        <a class="side-featured__cta" href="#">Read Full Review</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news">
+            <h2 class="section-title">News</h2>
+            <div class="news-card__grid ">
+                <div class="news-card">
+                    <img class="news-card__image" src="/media/images/cuphead.png" alt="">
+                    <div class="news-card__info"> 
+                        <h3 class="news-card__info-title">Cuphead</h3>
+                        <p class="news-card__info-description">From new levels to new weapons and even an old friend that is joining as a playable character. Cuphead - The Delicious Last Course have it all in this amazing DLC.</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <img class="news-card__image" src="/media/images/vampiresurvivor.png" alt="">
+                    <div class="news-card__info">
+                        <h3 class="news-card__info-title">Vampire Survivors</h3>
+                        <p class="news-card__info-description">Its simple, and addictive. I&apos;m a disabled gamer and the controls are very accessible. I normally don&apos;t play early access games but this one is good as it is now.</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <img class="news-card__image" src="/media/images/pathofexile.png" alt="">
+                    <div class="news-card__info">
+                        <h3 class="news-card__info-title">Path of Exile</h3>
+                        <p class="news-card__info-description">Siege of the Atlas DLC  brings new maps, skills, equips, events and much more.<br>Read our guide to start on the right path.</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <img class="news-card__image" src="/media/images/reddeadredemption.png" alt="">
+                    <div class="news-card__info">
+                        <h3 class="news-card__info-title">Red Dead Online</h3>
+                        <p class="news-card__info-description">Being an outlaw ain&apos;t easy buddy, we hunt and we are hunted.<br>Here&apos;s a list of the most profitable contracts and heists to get rich. But remember that the bigger the prize, the bigger is the risk.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="newsletter">
+            <h2 class="section-title">Newsletter</h2>
+            <div class="newsletter-form-container">
+                <h3 class="newsletter-form-container__title">Get all the recent news, promo codes, and events in your email</h3>
+                <form class="newsletter-form-container__form">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="d-flex">
+        <a href="#nav"><img src="/media/icons/logo_text.svg" alt="logo game house"></a>
+        <a href="https://twitter.com/devRafaMartins" target="_blank"><img class="social-media" src="/media/icons/twitter.svg" alt="twitter link"></a>
+        <a href="https://github.com/martins-rafa" target="_blank"><img class="social-media" src="/media/icons/github.svg" alt="github link"></a>
+        <p class="footer__copyright">© 2022, Rafa Martins, Gamer House ACME</p>
+    </footer>
+    
+</body>
+</html>
